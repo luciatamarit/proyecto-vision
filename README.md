@@ -1,28 +1,32 @@
 # Proyecto de Visión Artificial – Sistema de Seguridad y Tracking
 
 ## Descripción del proyecto  
-Este proyecto implementa un **sistema de visión artificial** dividido en dos fases principales:
+Este proyecto implementa un **sistema completo de visión artificial** dividido en tres fases:
+
+1. **Calibración de cámara (`calibracion.ipynb`)**
+2. **Fase SECURITY (`security.py`)** → detección secuencial obligatoria  
+3. **Fase TRACKING (`tracking.py`)** → seguimiento del balón en tiempo real  
 
 ---
 
-## 1. Fase SECURITY (`security.py`)
+## 1. Fase de Calibración (`calibracion.ipynb`)
 
-El sistema desbloquea el acceso solo cuando la cámara detecta **cuatro objetos físicos en un orden concreto**:
+Este archivo en formato Jupyter Notebook permite:
 
-1. **Aro de baloncesto (naranja)**
-2. **Pelota de baloncesto (naranja)**
-3. **Marcador cuadrado**
-4. **Objeto rojo**
+- Ajustar los rangos **HSV** para la detección de:
+  - Aro naranja  
+  - Pelota naranja  
+  - Marcador  
+  - Objeto rojo  
+- Visualizar en tiempo real las máscaras de color.
+- Ajustar manualmente los límites para obtener una detección más robusta según:
+  - condiciones de luz,
+  - color del entorno,
+  - cámara utilizada.
 
-### ✔ Normas de la secuencia
-- Cada objeto debe aparecer **en el orden correcto**.  
-- Los objetos ya detectados deben **permanecer visibles** en todo momento.  
-- Si un objeto confirmado desaparece → **RESET total**.  
-- Cuando los cuatro están visibles **a la vez**, aparece un mensaje verde:  
-  **"SECUENCIA COMPLETA - ACCESO PERMITIDO"**  
-- Tras esto, `security.py` ejecuta automáticamente **`tracking.py`**.
 
----
+Se recomienda ejecutar este notebook **antes del sistema de seguridad** para dejar calibrados los rangos HSV óptimos.
+
 
 ## 2. Fase TRACKING (`tracking.py`)
 
@@ -37,10 +41,15 @@ Tras validar la secuencia correcta, comienza un sistema de **seguimiento en tiem
 
 ## Arquitectura del proyecto
 proyecto-vision
+
 ├── main.py → Controlador general del sistema
+
 ├── security.py → Fase 1: detección secuencial y desbloqueo
+
 ├── tracking.py → Fase 2: tracking del balón en tiempo real
+
 ├── README.md → Documentación del proyecto
+
 └── assets/ → (Opcional) imágenes, marcador, recursos
 
 
