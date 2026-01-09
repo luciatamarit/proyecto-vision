@@ -1,6 +1,6 @@
 # Proyecto de Visión por Ordenador – Sistema de Seguridad y Tracking
 Proyecto Final – Visión por Ordenador I  
-Grado en Ingeniería Matemática – ICAI, Universidad Pontificia Comillas
+Grado en Ingeniería Matemática – ICAI, Universidad Pontificia Comillas  
 Lucía Tamarit e Irene Turrado
 
 ---
